@@ -9,9 +9,16 @@ app.get("/", (req, res) => {
   res.send("<h1>Hello nurse!</h1>")
 })
 
-app.get("/blog/:title", (req, res) => {
-  let post = posts[req.params.title]
-  res.send(post)
+app.get("/blog/:title?", (req, res) => {
+  let title = req.params.title
+
+  if (title === undefined) {
+    res.status(503)
+    res.send("Under construction!")
+  } else {
+    let post = posts[req.params.title]
+    res.send(post)
+  }
 })
 
 app.listen(3000, () => {
