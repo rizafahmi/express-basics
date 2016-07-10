@@ -1,17 +1,14 @@
-doctype
-html
-  head
-    title #{post.title}
-  body
-    section.post
-      .container.text-right
-        a(href="").text-faded view all
-        .row
-          .col-lg-8.col-lg-offset-2.text-center
-            h2.section-heading #{post.title}
-            hr.light
+extends ./layout.pug
+block content
+  section.post
+    .container.text-right
+      a(href="").text-faded view all
+      .row
+        .col-lg-8.col-lg-offset-2.text-center
+          h2.section-heading #{post.title}
+          hr.light
 
-            p.text-faded
-              | #{post.description}
-            .article
-              | #{post.description}
+          p.text-faded
+            | #{post.description}
+          .article
+            | #{post.description}
