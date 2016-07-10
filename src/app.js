@@ -19,8 +19,8 @@ app.get("/blog/:title?", (req, res) => {
     res.status(503)
     res.send("Under construction!")
   } else {
-    let post = posts[req.params.title]
-    res.send(post)
+    let post = posts[req.params.title] || {}
+    res.render("post", { post: post })
   }
 })
 
