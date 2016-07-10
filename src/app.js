@@ -4,14 +4,14 @@ const express = require('express')
 const posts = require('./mock/posts.json')
 
 var app = express()
-debugger
 
 app.get("/", (req, res) => {
   res.send("<h1>Hello nurse!</h1>")
 })
 
-app.get("/blog", (req, res) => {
-  res.send(posts)
+app.get("/blog/:title", (req, res) => {
+  let post = posts[req.params.title]
+  res.send(post)
 })
 
 app.listen(3000, () => {
